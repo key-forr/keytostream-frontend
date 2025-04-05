@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CircleCheck } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -32,6 +33,8 @@ import {
 import { AuthWrapper } from '../AuthWrapper'
 
 export function CreateAccountForm() {
+	const t = useTranslations('auth.register')
+
 	const [isSuccess, setIsSuccess] = useState(false)
 
 	const form = useForm<TypeCreateAccountSchema>({
@@ -48,7 +51,7 @@ export function CreateAccountForm() {
 			setIsSuccess(true)
 		},
 		onError() {
-			toast.error('Помилка при реєстрації')
+			toast.error(t('errorMessage'))
 		}
 	})
 
@@ -60,15 +63,17 @@ export function CreateAccountForm() {
 
 	return (
 		<AuthWrapper
-			heading='Реєстрація в keytostream'
-			backButtonLabel='Уже зареєстровані? Увійти'
+			heading={t('heading')}
+			backButtonLabel={t('backButtonLabel')}
 			backButtonHref='/account/login'
 		>
 			{isSuccess ? (
 				<Alert>
 					<CircleCheck className='size-4' />
-					<AlertTitle>Success</AlertTitle>
-					<AlertDescription>Confirm Email</AlertDescription>
+					<AlertTitle>{t('successAlertTitle')}</AlertTitle>
+					<AlertDescription>
+						{t('successAlertDescription')}
+					</AlertDescription>
 				</Alert>
 			) : (
 				<Form {...form}>
@@ -81,7 +86,7 @@ export function CreateAccountForm() {
 							name='username'
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Ім'я користувача</FormLabel>
+									<FormLabel>{t('usernameLabel')}</FormLabel>
 									<FormControl>
 										<Input
 											placeholder='johndoe'
@@ -90,7 +95,7 @@ export function CreateAccountForm() {
 										/>
 									</FormControl>
 									<FormDescription>
-										Поля для вводу імені
+										{t('usernameDescription')}
 									</FormDescription>
 								</FormItem>
 							)}
@@ -100,7 +105,7 @@ export function CreateAccountForm() {
 							name='email'
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Пошта</FormLabel>
+									<FormLabel>{t('emailLabel')}</FormLabel>
 									<FormControl>
 										<Input
 											placeholder='john.doe@example.com'
@@ -109,7 +114,7 @@ export function CreateAccountForm() {
 										/>
 									</FormControl>
 									<FormDescription>
-										Поля для вводу пошти
+										{t('emailDescription')}
 									</FormDescription>
 								</FormItem>
 							)}
@@ -119,7 +124,7 @@ export function CreateAccountForm() {
 							name='password'
 							render={({ field }) => (
 								<FormItem>
-									<FormLabel>Пароль</FormLabel>
+									<FormLabel>{t('passwordLabel')}</FormLabel>
 									<FormControl>
 										<Input
 											placeholder='********'
@@ -129,7 +134,7 @@ export function CreateAccountForm() {
 										/>
 									</FormControl>
 									<FormDescription>
-										Поля для вводу пароля
+										{t('passwordDescription')}
 									</FormDescription>
 								</FormItem>
 							)}
@@ -138,7 +143,7 @@ export function CreateAccountForm() {
 							className='mt-2 w-full'
 							disabled={!isValid || isLoadingCreate}
 						>
-							Продовжити
+							{t('submitButton')}
 						</Button>
 					</form>
 				</Form>
