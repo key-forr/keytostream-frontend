@@ -1,7 +1,7 @@
+import { GeistSans } from 'geist/font/sans'
 import type { Metadata } from 'next'
 import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
-import { Inter } from 'next/font/google'
 
 import { ApolloClientProvider } from '@/providers/ApolloClientProvider'
 
@@ -22,7 +22,7 @@ export default async function RootLayout({
 
 	return (
 		<html lang={locale}>
-			<body>
+			<body className={GeistSans.variable}>
 				<ApolloClientProvider>
 					<NextIntlClientProvider messages={messages}>
 						{children}
