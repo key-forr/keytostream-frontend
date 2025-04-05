@@ -3,5 +3,13 @@
 import { AuthWrapper } from '../AuthWrapper'
 
 export function CreateAccountForm() {
-	return <AuthWrapper>CreateAccountForm</AuthWrapper>
+	return (
+		<AuthWrapper
+			heading='Реєстрація в keytostream'
+			backButtonLabel='Уже зареєстровані? Увійти'
+			backButtonHref='/account/login'
+		>
+			CreateAccountForm
+		</AuthWrapper>
+	)
 }
