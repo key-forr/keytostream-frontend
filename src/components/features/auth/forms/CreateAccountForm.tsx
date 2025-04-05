@@ -14,6 +14,8 @@ import {
 } from '@/components/ui/common/Form'
 import { Input } from '@/components/ui/common/Input'
 
+import { useCreateUserMutation } from '@/graphql/generated/output'
+
 import {
 	TypeCreateAccountSchema,
 	createAccountSchema
@@ -29,6 +31,10 @@ export function CreateAccountForm() {
 			email: '',
 			password: ''
 		}
+	})
+
+	const [] = useCreateUserMutation({
+		onCompleted() {}
 	})
 
 	const { isValid } = form.formState
@@ -100,7 +106,7 @@ export function CreateAccountForm() {
 							</FormItem>
 						)}
 					/>
-					<Button className='mt-2 w-full' disabled={isValid}>
+					<Button className='mt-2 w-full' disabled={!isValid}>
 						Продовжити
 					</Button>
 				</form>
