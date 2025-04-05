@@ -74,3 +74,15 @@
 		height: 100vh;
 	}
 }
+
+::-webkit-scrollbar {
+	width: 9px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-secondary/65 hover:bg-secondary rounded-full;
+}
