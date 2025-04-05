@@ -2,6 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/common/Button'
 import {
@@ -33,14 +34,19 @@ export function CreateAccountForm() {
 		}
 	})
 
-	const [] = useCreateUserMutation({
-		onCompleted() {}
+	const [create, { loading: isLoadingCreate }] = useCreateUserMutation({
+		onCompleted() {
+			toast.success('Успішна реєстрація')
+		},
+		onError() {
+			toast.error('Помилка при реєстрації')
+		}
 	})
 
 	const { isValid } = form.formState
 
 	function onSubmit(data: TypeCreateAccountSchema) {
-		console.log(data)
+		create({ variables: { data } })
 	}
 
 	return (
@@ -61,7 +67,11 @@ export function CreateAccountForm() {
 							<FormItem>
 								<FormLabel>Ім'я користувача</FormLabel>
 								<FormControl>
-									<Input placeholder='johndoe' {...field} />
+									<Input
+										placeholder='johndoe'
+										disabled={isLoadingCreate}
+										{...field}
+									/>
 								</FormControl>
 								<FormDescription>
 									Поля для вводу імені
@@ -78,6 +88,7 @@ export function CreateAccountForm() {
 								<FormControl>
 									<Input
 										placeholder='john.doe@example.com'
+										disabled={isLoadingCreate}
 										{...field}
 									/>
 								</FormControl>
@@ -97,6 +108,7 @@ export function CreateAccountForm() {
 									<Input
 										placeholder='********'
 										type='password'
+										disabled={isLoadingCreate}
 										{...field}
 									/>
 								</FormControl>
@@ -106,7 +118,10 @@ export function CreateAccountForm() {
 							</FormItem>
 						)}
 					/>
-					<Button className='mt-2 w-full' disabled={!isValid}>
+					<Button
+						className='mt-2 w-full'
+						disabled={!isValid || isLoadingCreate}
+					>
 						Продовжити
 					</Button>
 				</form>
