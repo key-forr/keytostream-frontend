@@ -1,5 +1,71 @@
 {
-	"home": {
-		"title": "Головна сторінка"
+	"auth": {
+		"register": {
+			"heading": "Реєстрація на keytostream",
+			"backButtonLabel": "Вже маєте акаунт? Увійти",
+			"usernameLabel": "Ім’я користувача",
+			"usernameDescription": "Це ім’я, за яким вас знатимуть інші користувачі. Ви зможете змінити його пізніше.",
+			"emailLabel": "Електронна пошта",
+			"emailDescription": "Ми можемо використовувати вашу електронну пошту для надсилання сповіщень, повʼязаних з акаунтом.",
+			"passwordLabel": "Пароль",
+			"passwordDescription": "Пароль повинен містити щонайменше 8 символів.",
+			"submitButton": "Зареєструватися",
+			"successAlertTitle": "Перевірте електронну пошту",
+			"successAlertDescription": "Лист для підтвердження відправлено на вашу пошту. Якщо ви не бачите листа, перевірте папку 'Спам'.",
+			"errorMessage": "Помилка під час створення акаунта"
+		},
+		"verify": {
+			"heading": "Підтвердження акаунта",
+			"successMessage": "Акаунт підтверджено",
+			"errorMessage": "Помилка підтвердження"
+		},
+		"login": {
+			"heading": "Вхід на keytostream",
+			"backButtonLabel": "Не маєте акаунта? Зареєструйтесь!",
+			"loginLabel": "Логін",
+			"loginDescription": "Ваше ім’я користувача або електронна пошта, які ви використовували під час реєстрації.",
+			"passwordLabel": "Пароль",
+			"passwordDescription": "Пароль, який ви використовували під час реєстрації.",
+			"pinLabel": "6-значний код",
+			"pinDescription": "Введіть код із вашого додатку автентифікації.",
+			"forgotPassword": "Забули пароль?",
+			"submitButton": "Увійти",
+			"successMessage": "Ви успішно увійшли",
+			"errorMessage": "Помилка під час входу"
+		},
+		"resetPassword": {
+			"heading": "Скидання пароля",
+			"backButtonLabel": "Вже маєте акаунт? Увійти",
+			"emailLabel": "Електронна пошта",
+			"emailDescription": "Електронна пошта, яку ви використовували під час реєстрації",
+			"submitButton": "Скинути пароль",
+			"successAlertTitle": "Посилання надіслано",
+			"successAlertDescription": "Ми надіслали посилання для скидання пароля на вашу пошту. Якщо у вас увімкнено сповіщення в Telegram, посилання надіслано і туди.",
+			"errorMessage": "Помилка скидання пароля"
+		},
+		"newPassword": {
+			"heading": "Новий пароль",
+			"backButtonLabel": "Вже маєте акаунт? Увійти",
+			"passwordLabel": "Новий пароль",
+			"passwordDescription": "Пароль, який ви використовували під час реєстрації",
+			"passwordRepeatLabel": "Повторіть пароль",
+			"passwordRepeatDescription": "Повторіть новий пароль для підтвердження",
+			"submitButton": "Встановити новий пароль",
+			"successMessage": "Пароль успішно змінено",
+			"errorMessage": "Помилка під час встановлення нового пароля"
+		},
+		"deactivate": {
+			"heading": "Деактивувати акаунт",
+			"backButtonLabel": "Перейти до панелі керування",
+			"emailLabel": "Електронна пошта",
+			"emailDescription": "Електронна пошта, яку ви використовували під час реєстрації",
+			"passwordLabel": "Пароль",
+			"passwordDescription": "Пароль, який ви використовували під час реєстрації",
+			"pinLabel": "6-значний код",
+			"pinDescription": "Код надіслано на вашу пошту. Якщо у вас увімкнено Telegram-сповіщення, код надіслано і туди.",
+			"submitButton": "Деактивувати",
+			"successMessage": "Ваш акаунт успішно деактивовано",
+			"errorMessage": "Помилка деактивації"
+		}
 	}
 }
