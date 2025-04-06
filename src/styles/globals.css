@@ -19,7 +19,7 @@
 		--card: 225, 10%, 93%;
 		--card-foreground: 222.2 47.4% 11.2%;
 
-		--primary: 176, 77%, 41%;
+		--primary: 0, 80%, 45%;
 		--primary-foreground: 210 40% 98%;
 
 		--secondary: 210 29% 96%;
@@ -46,7 +46,7 @@
 		--card: 224, 16%, 19%;
 		--card-foreground: 213 31% 91%;
 
-		--primary: 176, 77%, 41%;
+		--primary: 0, 80%, 45%;
 		--primary-foreground: 210 40% 98%;
 
 		--secondary: 230, 12%, 29%;
@@ -68,7 +68,7 @@
 	}
 
 	body {
-		@apply bg-background text-foreground overscroll-none;
+		@apply overscroll-none bg-background text-foreground;
 
 		font-family: var(--font-geist-sans), sans-serif;
 		height: 100vh;
@@ -84,5 +84,5 @@
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-secondary/65 hover:bg-secondary rounded-full;
+	@apply rounded-full bg-secondary/65 hover:bg-secondary;
 }
