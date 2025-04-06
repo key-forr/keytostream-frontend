@@ -2,6 +2,8 @@
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -25,6 +27,10 @@ import { AuthWrapper } from '../AuthWrapper'
 export function LoginForm() {
 	const t = useTranslations('auth.login')
 
+	const router = useRouter()
+
+	const [isShowTwoFactor, setIsShowTwoFactor] = useState(false)
+
 	const form = useForm<TypeLoginSchema>({
 		resolver: zodResolver(loginSchema),
 		defaultValues: {
@@ -34,7 +40,14 @@ export function LoginForm() {
 	})
 
 	const [login, { loading: isLoadingLogin }] = useLoginUserMutation({
-		onCompleted() {},
+		onCompleted(data) {
+			if (data.loginUser.message) {
+				setIsShowTwoFactor(true)
+			} else {
+				toast.success(t('successMessage'))
+				router.push('/dashboard/settings')
+			}
+		},
 		onError() {
 			toast.error(t('errorMessage'))
 		}
@@ -56,45 +69,53 @@ export function LoginForm() {
 					onSubmit={form.handleSubmit(onSubmit)}
 					className='grid gap-y-3'
 				>
-					<FormField
-						control={form.control}
-						name='login'
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>{t('loginLabel')}</FormLabel>
-								<FormControl>
-									<Input
-										placeholder='johndoe'
-										disabled={isLoadingLogin}
-										{...field}
-									/>
-								</FormControl>
-								<FormDescription>
-									{t('loginDescription')}
-								</FormDescription>
-							</FormItem>
-						)}
-					/>
-					<FormField
-						control={form.control}
-						name='password'
-						render={({ field }) => (
-							<FormItem>
-								<FormLabel>{t('passwordLabel')}</FormLabel>
-								<FormControl>
-									<Input
-										placeholder='********'
-										type='password'
-										disabled={isLoadingLogin}
-										{...field}
-									/>
-								</FormControl>
-								<FormDescription>
-									{t('passwordDescription')}
-								</FormDescription>
-							</FormItem>
-						)}
-					/>
+					{isShowTwoFactor ? (
+						<div>PIN</div>
+					) : (
+						<>
+							<FormField
+								control={form.control}
+								name='login'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>{t('loginLabel')}</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='johndoe'
+												disabled={isLoadingLogin}
+												{...field}
+											/>
+										</FormControl>
+										<FormDescription>
+											{t('loginDescription')}
+										</FormDescription>
+									</FormItem>
+								)}
+							/>
+							<FormField
+								control={form.control}
+								name='password'
+								render={({ field }) => (
+									<FormItem>
+										<FormLabel>
+											{t('passwordLabel')}
+										</FormLabel>
+										<FormControl>
+											<Input
+												placeholder='********'
+												type='password'
+												disabled={isLoadingLogin}
+												{...field}
+											/>
+										</FormControl>
+										<FormDescription>
+											{t('passwordDescription')}
+										</FormDescription>
+									</FormItem>
+								)}
+							/>
+						</>
+					)}
 					<Button
 						className='mt-2 w-full'
 						disabled={!isValid || isLoadingLogin}
