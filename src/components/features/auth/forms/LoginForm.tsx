@@ -5,6 +5,17 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
+import { Button } from '@/components/ui/common/Button'
+import {
+	Form,
+	FormControl,
+	FormDescription,
+	FormField,
+	FormItem,
+	FormLabel
+} from '@/components/ui/common/Form'
+import { Input } from '@/components/ui/common/Input'
+
 import { useLoginUserMutation } from '@/graphql/generated/output'
 
 import { TypeLoginSchema, loginSchema } from '@/schemas/auth/login.schema'
@@ -40,7 +51,58 @@ export function LoginForm() {
 			backButtonLabel={t('backButtonLabel')}
 			backButtonHref='/account/create'
 		>
-			LoginForm
+			<Form {...form}>
+				<form
+					onSubmit={form.handleSubmit(onSubmit)}
+					className='grid gap-y-3'
+				>
+					<FormField
+						control={form.control}
+						name='login'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>{t('loginLabel')}</FormLabel>
+								<FormControl>
+									<Input
+										placeholder='johndoe'
+										disabled={isLoadingLogin}
+										{...field}
+									/>
+								</FormControl>
+								<FormDescription>
+									{t('loginDescription')}
+								</FormDescription>
+							</FormItem>
+						)}
+					/>
+					<FormField
+						control={form.control}
+						name='password'
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>{t('passwordLabel')}</FormLabel>
+								<FormControl>
+									<Input
+										placeholder='********'
+										type='password'
+										disabled={isLoadingLogin}
+										{...field}
+									/>
+								</FormControl>
+								<FormDescription>
+									{t('passwordDescription')}
+								</FormDescription>
+							</FormItem>
+						)}
+					/>
+					<Button
+						className='mt-2 w-full'
+						disabled={!isValid || isLoadingLogin}
+					>
+						{t('submitButton')}
+					</Button>
+				</form>
+			</Form>
 		</AuthWrapper>
 	)
 }
