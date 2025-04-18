@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 
+import { LogoImage } from '@/components/images/LogoImage'
 import { Button } from '@/components/ui/common/Button'
 import {
 	Card,
@@ -27,12 +28,7 @@ export function AuthWrapper({
 		<div className='flex h-full items-center justify-center'>
 			<Card className='w-[450px]'>
 				<CardHeader className='flex-row items-center justify-center gap-x-4'>
-					<Image
-						src='/images/logo.svg'
-						alt='keytostream'
-						width={40}
-						height={40}
-					/>
+					<LogoImage />
 					<CardTitle>{heading}</CardTitle>
 				</CardHeader>
 				<CardContent>{children}</CardContent>
