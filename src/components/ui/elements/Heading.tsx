@@ -12,7 +12,7 @@ const headingSizes = cva('', {
 		size: {
 			sm: 'text-lg',
 			default: 'text-2xl',
-			lg: 'size-4xl',
+			lg: 'text-4xl',
 			xl: 'text-5xl'
 		}
 	},
