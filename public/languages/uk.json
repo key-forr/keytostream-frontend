@@ -158,7 +158,7 @@
 					"displayNamePlaceholder": "John Doe",
 					"displayNameDescription": "Ви можете використовувати великі літери у своєму відображуваному імені на ваш розсуд.",
 					"bioLabel": "Про мене",
-					"bioPlaceholder": "Я люблю програмування",
+					"bioPlaceholder": "Напиши щось про себе",
 					"bioDescription": "Інформація про вас повинна містити не більше 300 символів.",
 					"successMessage": "Профіль успішно оновлено",
 					"errorMessage": "Помилка оновлення профілю",

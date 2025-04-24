@@ -158,7 +158,7 @@
 					"displayNamePlaceholder": "John Doe",
 					"displayNameDescription": "You can use uppercase letters in your display name as you wish.",
 					"bioLabel": "About Me",
-					"bioPlaceholder": "I love programming",
+					"bioPlaceholder": "write something about yourself",
 					"bioDescription": "The information about yourself should contain no more than 300 characters.",
 					"successMessage": "Profile successfully updated",
 					"errorMessage": "Error updating profile",
