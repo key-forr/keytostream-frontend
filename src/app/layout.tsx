@@ -8,6 +8,7 @@ import { ThemeProvider } from '@/providers/ThemeProvider'
 import { ToastProvider } from '@/providers/ToastProvider'
 
 import '@/styles/globals.css'
+import '@/styles/themes.css'
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
