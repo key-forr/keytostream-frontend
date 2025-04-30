@@ -12,6 +12,7 @@ import { ChangeEmailForm } from './account/ChangeEmailForm'
 import { ChangePasswordForm } from './account/ChangePasswordForm'
 import { DeactivateCard } from './account/DeactivateCard'
 import { WrapperTotp } from './account/totp/WrapperTotp'
+import { ChangeLanguageForm } from './appearance/ChangeLanguageForm'
 import { ChangeThemeForm } from './appearance/ChangeThemeForm'
 import { ChangeAvatarForm } from './profile/ChangeAvatarForm'
 import { ChangeInfoForm } from './profile/ChangeInfoForm'
@@ -87,6 +88,7 @@ export function UserSettings() {
 							description={t('appearance.header.description')}
 						/>
 						<ChangeThemeForm />
+						<ChangeLanguageForm />
 					</div>
 				</TabsContent>
 				<TabsContent value='notifications'>Повідомлення</TabsContent>
