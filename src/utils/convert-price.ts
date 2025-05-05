@@ -1,6 +1,6 @@
 export function convertPrice(price: number) {
-	return price.toLocaleString('ru-RU', {
+	return price.toLocaleString('uk-UA', {
 		style: 'currency',
-		currency: 'RUB'
+		currency: 'UAH'
 	})
 }
