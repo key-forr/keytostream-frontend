@@ -32,7 +32,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
 			<div
 				className={cn(
 					'group relative cursor-pointer rounded-xl',
-					isCollapsed ? 'h-60' : 'h-52'
+					isCollapsed ? 'h-80' : 'h-72'
 				)}
 			>
 				<div
