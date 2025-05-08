@@ -656,6 +656,20 @@ export type SendChatMessageMutationVariables = Exact<{
 
 export type SendChatMessageMutation = { __typename?: 'Mutation', sendChatMessage: { __typename?: 'ChatMessageModel', streamId: string } };
 
+export type FollowChannelMutationVariables = Exact<{
+  channelId: Scalars['String']['input'];
+}>;
+
+
+export type FollowChannelMutation = { __typename?: 'Mutation', followChannel: boolean };
+
+export type UnfollowChannelMutationVariables = Exact<{
+  channelId: Scalars['String']['input'];
+}>;
+
+
+export type UnfollowChannelMutation = { __typename?: 'Mutation', unfollowChannel: boolean };
+
 export type CreateSponsorshipPlanMutationVariables = Exact<{
   data: CreatePlanInput;
 }>;
@@ -670,6 +684,20 @@ export type RemoveSponsorshipPlanMutationVariables = Exact<{
 
 export type RemoveSponsorshipPlanMutation = { __typename?: 'Mutation', removeSponsorshipPlan: boolean };
 
+export type ChangeStreamInfoMutationVariables = Exact<{
+  data: ChangeStreamInfoInput;
+}>;
+
+
+export type ChangeStreamInfoMutation = { __typename?: 'Mutation', changeStreamInfo: boolean };
+
+export type ChangeStreamThumbnailMutationVariables = Exact<{
+  thumbnail: Scalars['Upload']['input'];
+}>;
+
+
+export type ChangeStreamThumbnailMutation = { __typename?: 'Mutation', changeStreamThumbnail: boolean };
+
 export type CreateIngressMutationVariables = Exact<{
   ingressType: Scalars['Float']['input'];
 }>;
@@ -683,6 +711,11 @@ export type GenerateStreamTokenMutationVariables = Exact<{
 
 
 export type GenerateStreamTokenMutation = { __typename?: 'Mutation', generateStreamToken: { __typename?: 'GenerateStreamTokenModel', token: string } };
+
+export type RemoveStreamThumbnailMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RemoveStreamThumbnailMutation = { __typename?: 'Mutation', removeStreamThumbnail: boolean };
 
 export type ChangeEmailMutationVariables = Exact<{
   data: ChangeEmailInput;
@@ -1181,6 +1214,68 @@ export function useSendChatMessageMutation(baseOptions?: Apollo.MutationHookOpti
 export type SendChatMessageMutationHookResult = ReturnType<typeof useSendChatMessageMutation>;
 export type SendChatMessageMutationResult = Apollo.MutationResult<SendChatMessageMutation>;
 export type SendChatMessageMutationOptions = Apollo.BaseMutationOptions<SendChatMessageMutation, SendChatMessageMutationVariables>;
+export const FollowChannelDocument = gql`
+    mutation FollowChannel($channelId: String!) {
+  followChannel(channelId: $channelId)
+}
+    `;
+export type FollowChannelMutationFn = Apollo.MutationFunction<FollowChannelMutation, FollowChannelMutationVariables>;
+
+/**
+ * __useFollowChannelMutation__
+ *
+ * To run a mutation, you first call `useFollowChannelMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useFollowChannelMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [followChannelMutation, { data, loading, error }] = useFollowChannelMutation({
+ *   variables: {
+ *      channelId: // value for 'channelId'
+ *   },
+ * });
+ */
+export function useFollowChannelMutation(baseOptions?: Apollo.MutationHookOptions<FollowChannelMutation, FollowChannelMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<FollowChannelMutation, FollowChannelMutationVariables>(FollowChannelDocument, options);
+      }
+export type FollowChannelMutationHookResult = ReturnType<typeof useFollowChannelMutation>;
+export type FollowChannelMutationResult = Apollo.MutationResult<FollowChannelMutation>;
+export type FollowChannelMutationOptions = Apollo.BaseMutationOptions<FollowChannelMutation, FollowChannelMutationVariables>;
+export const UnfollowChannelDocument = gql`
+    mutation UnfollowChannel($channelId: String!) {
+  unfollowChannel(channelId: $channelId)
+}
+    `;
+export type UnfollowChannelMutationFn = Apollo.MutationFunction<UnfollowChannelMutation, UnfollowChannelMutationVariables>;
+
+/**
+ * __useUnfollowChannelMutation__
+ *
+ * To run a mutation, you first call `useUnfollowChannelMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUnfollowChannelMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [unfollowChannelMutation, { data, loading, error }] = useUnfollowChannelMutation({
+ *   variables: {
+ *      channelId: // value for 'channelId'
+ *   },
+ * });
+ */
+export function useUnfollowChannelMutation(baseOptions?: Apollo.MutationHookOptions<UnfollowChannelMutation, UnfollowChannelMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UnfollowChannelMutation, UnfollowChannelMutationVariables>(UnfollowChannelDocument, options);
+      }
+export type UnfollowChannelMutationHookResult = ReturnType<typeof useUnfollowChannelMutation>;
+export type UnfollowChannelMutationResult = Apollo.MutationResult<UnfollowChannelMutation>;
+export type UnfollowChannelMutationOptions = Apollo.BaseMutationOptions<UnfollowChannelMutation, UnfollowChannelMutationVariables>;
 export const CreateSponsorshipPlanDocument = gql`
     mutation CreateSponsorshipPlan($data: CreatePlanInput!) {
   createSponsorshipPlan(data: $data)
@@ -1243,6 +1338,68 @@ export function useRemoveSponsorshipPlanMutation(baseOptions?: Apollo.MutationHo
 export type RemoveSponsorshipPlanMutationHookResult = ReturnType<typeof useRemoveSponsorshipPlanMutation>;
 export type RemoveSponsorshipPlanMutationResult = Apollo.MutationResult<RemoveSponsorshipPlanMutation>;
 export type RemoveSponsorshipPlanMutationOptions = Apollo.BaseMutationOptions<RemoveSponsorshipPlanMutation, RemoveSponsorshipPlanMutationVariables>;
+export const ChangeStreamInfoDocument = gql`
+    mutation ChangeStreamInfo($data: ChangeStreamInfoInput!) {
+  changeStreamInfo(data: $data)
+}
+    `;
+export type ChangeStreamInfoMutationFn = Apollo.MutationFunction<ChangeStreamInfoMutation, ChangeStreamInfoMutationVariables>;
+
+/**
+ * __useChangeStreamInfoMutation__
+ *
+ * To run a mutation, you first call `useChangeStreamInfoMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useChangeStreamInfoMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [changeStreamInfoMutation, { data, loading, error }] = useChangeStreamInfoMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useChangeStreamInfoMutation(baseOptions?: Apollo.MutationHookOptions<ChangeStreamInfoMutation, ChangeStreamInfoMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<ChangeStreamInfoMutation, ChangeStreamInfoMutationVariables>(ChangeStreamInfoDocument, options);
+      }
+export type ChangeStreamInfoMutationHookResult = ReturnType<typeof useChangeStreamInfoMutation>;
+export type ChangeStreamInfoMutationResult = Apollo.MutationResult<ChangeStreamInfoMutation>;
+export type ChangeStreamInfoMutationOptions = Apollo.BaseMutationOptions<ChangeStreamInfoMutation, ChangeStreamInfoMutationVariables>;
+export const ChangeStreamThumbnailDocument = gql`
+    mutation ChangeStreamThumbnail($thumbnail: Upload!) {
+  changeStreamThumbnail(thumbnail: $thumbnail)
+}
+    `;
+export type ChangeStreamThumbnailMutationFn = Apollo.MutationFunction<ChangeStreamThumbnailMutation, ChangeStreamThumbnailMutationVariables>;
+
+/**
+ * __useChangeStreamThumbnailMutation__
+ *
+ * To run a mutation, you first call `useChangeStreamThumbnailMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useChangeStreamThumbnailMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [changeStreamThumbnailMutation, { data, loading, error }] = useChangeStreamThumbnailMutation({
+ *   variables: {
+ *      thumbnail: // value for 'thumbnail'
+ *   },
+ * });
+ */
+export function useChangeStreamThumbnailMutation(baseOptions?: Apollo.MutationHookOptions<ChangeStreamThumbnailMutation, ChangeStreamThumbnailMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<ChangeStreamThumbnailMutation, ChangeStreamThumbnailMutationVariables>(ChangeStreamThumbnailDocument, options);
+      }
+export type ChangeStreamThumbnailMutationHookResult = ReturnType<typeof useChangeStreamThumbnailMutation>;
+export type ChangeStreamThumbnailMutationResult = Apollo.MutationResult<ChangeStreamThumbnailMutation>;
+export type ChangeStreamThumbnailMutationOptions = Apollo.BaseMutationOptions<ChangeStreamThumbnailMutation, ChangeStreamThumbnailMutationVariables>;
 export const CreateIngressDocument = gql`
     mutation CreateIngress($ingressType: Float!) {
   createIngress(ingressType: $ingressType)
@@ -1307,6 +1464,36 @@ export function useGenerateStreamTokenMutation(baseOptions?: Apollo.MutationHook
 export type GenerateStreamTokenMutationHookResult = ReturnType<typeof useGenerateStreamTokenMutation>;
 export type GenerateStreamTokenMutationResult = Apollo.MutationResult<GenerateStreamTokenMutation>;
 export type GenerateStreamTokenMutationOptions = Apollo.BaseMutationOptions<GenerateStreamTokenMutation, GenerateStreamTokenMutationVariables>;
+export const RemoveStreamThumbnailDocument = gql`
+    mutation RemoveStreamThumbnail {
+  removeStreamThumbnail
+}
+    `;
+export type RemoveStreamThumbnailMutationFn = Apollo.MutationFunction<RemoveStreamThumbnailMutation, RemoveStreamThumbnailMutationVariables>;
+
+/**
+ * __useRemoveStreamThumbnailMutation__
+ *
+ * To run a mutation, you first call `useRemoveStreamThumbnailMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useRemoveStreamThumbnailMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [removeStreamThumbnailMutation, { data, loading, error }] = useRemoveStreamThumbnailMutation({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useRemoveStreamThumbnailMutation(baseOptions?: Apollo.MutationHookOptions<RemoveStreamThumbnailMutation, RemoveStreamThumbnailMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<RemoveStreamThumbnailMutation, RemoveStreamThumbnailMutationVariables>(RemoveStreamThumbnailDocument, options);
+      }
+export type RemoveStreamThumbnailMutationHookResult = ReturnType<typeof useRemoveStreamThumbnailMutation>;
+export type RemoveStreamThumbnailMutationResult = Apollo.MutationResult<RemoveStreamThumbnailMutation>;
+export type RemoveStreamThumbnailMutationOptions = Apollo.BaseMutationOptions<RemoveStreamThumbnailMutation, RemoveStreamThumbnailMutationVariables>;
 export const ChangeEmailDocument = gql`
     mutation ChangeEmail($data: ChangeEmailInput!) {
   changeEmail(data: $data)
