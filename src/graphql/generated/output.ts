@@ -684,6 +684,13 @@ export type RemoveSponsorshipPlanMutationVariables = Exact<{
 
 export type RemoveSponsorshipPlanMutation = { __typename?: 'Mutation', removeSponsorshipPlan: boolean };
 
+export type MakePaymentMutationVariables = Exact<{
+  planId: Scalars['String']['input'];
+}>;
+
+
+export type MakePaymentMutation = { __typename?: 'Mutation', makePayment: { __typename?: 'MakePaymentModel', url: string } };
+
 export type ChangeStreamInfoMutationVariables = Exact<{
   data: ChangeStreamInfoInput;
 }>;
@@ -1338,6 +1345,39 @@ export function useRemoveSponsorshipPlanMutation(baseOptions?: Apollo.MutationHo
 export type RemoveSponsorshipPlanMutationHookResult = ReturnType<typeof useRemoveSponsorshipPlanMutation>;
 export type RemoveSponsorshipPlanMutationResult = Apollo.MutationResult<RemoveSponsorshipPlanMutation>;
 export type RemoveSponsorshipPlanMutationOptions = Apollo.BaseMutationOptions<RemoveSponsorshipPlanMutation, RemoveSponsorshipPlanMutationVariables>;
+export const MakePaymentDocument = gql`
+    mutation MakePayment($planId: String!) {
+  makePayment(planId: $planId) {
+    url
+  }
+}
+    `;
+export type MakePaymentMutationFn = Apollo.MutationFunction<MakePaymentMutation, MakePaymentMutationVariables>;
+
+/**
+ * __useMakePaymentMutation__
+ *
+ * To run a mutation, you first call `useMakePaymentMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useMakePaymentMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [makePaymentMutation, { data, loading, error }] = useMakePaymentMutation({
+ *   variables: {
+ *      planId: // value for 'planId'
+ *   },
+ * });
+ */
+export function useMakePaymentMutation(baseOptions?: Apollo.MutationHookOptions<MakePaymentMutation, MakePaymentMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<MakePaymentMutation, MakePaymentMutationVariables>(MakePaymentDocument, options);
+      }
+export type MakePaymentMutationHookResult = ReturnType<typeof useMakePaymentMutation>;
+export type MakePaymentMutationResult = Apollo.MutationResult<MakePaymentMutation>;
+export type MakePaymentMutationOptions = Apollo.BaseMutationOptions<MakePaymentMutation, MakePaymentMutationVariables>;
 export const ChangeStreamInfoDocument = gql`
     mutation ChangeStreamInfo($data: ChangeStreamInfoInput!) {
   changeStreamInfo(data: $data)
