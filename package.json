@@ -41,6 +41,7 @@
 		"input-otp": "^1.4.2",
 		"jwt-decode": "^4.0.0",
 		"leaflet": "^1.9.4",
+		"livekit-client": "^2.11.4",
 		"lucide-react": "^0.487.0",
 		"next": "15.2.4",
 		"next-intl": "^4.0.2",
@@ -54,6 +55,7 @@
 		"sonner": "^2.0.3",
 		"tailwind-merge": "^3.1.0",
 		"tailwindcss-animate": "^1.0.7",
+		"usehooks-ts": "^3.1.1",
 		"uuid": "^11.1.0",
 		"zod": "^3.24.2",
 		"zustand": "^5.0.3"

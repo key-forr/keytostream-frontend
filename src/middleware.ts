@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 
 export default function middleware(request: NextRequest) {
 	const { url, cookies, nextUrl } = request
@@ -10,17 +10,15 @@ export default function middleware(request: NextRequest) {
 	const isDashboardRoute = nextUrl.pathname.startsWith('/dashboard')
 
 	if (!session && isDashboardRoute) {
-		return NextResponse.redirect(new URL('/account/login', request.url))
+		return NextResponse.redirect(new URL('/account/login', url))
 	}
 
 	if (!session && isDeactivateRoute) {
-		return NextResponse.redirect(new URL('/account/login', request.url))
+		return NextResponse.redirect(new URL('/account/login', url))
 	}
 
 	if (session && isAuthRoute && !isDeactivateRoute) {
-		return NextResponse.redirect(
-			new URL('/dashboard/settings', request.url)
-		)
+		return NextResponse.redirect(new URL('/dashboard/settings', url))
 	}
 
 	return NextResponse.next()
