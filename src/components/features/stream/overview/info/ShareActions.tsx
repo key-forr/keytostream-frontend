@@ -3,6 +3,8 @@ import { useTranslations } from 'next-intl'
 import { FaReddit, FaTelegram, FaVk } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import {
+	EmailIcon,
+	EmailShareButton,
 	RedditShareButton,
 	TelegramShareButton,
 	TwitterShareButton,
@@ -36,7 +38,7 @@ export function ShareActions({ channel }: ShareActionsProps) {
 			</PopoverTrigger>
 			<PopoverContent side='top' className='w-[300px]'>
 				<h2 className='font-medium'>{t('heading')}</h2>
-				<div className='mt-4 grid grid-cols-4 gap-3'>
+				<div className='mt-4 grid grid-cols-3 gap-3'>
 					<TelegramShareButton url={shareUrl}>
 						<div className='flex h-14 items-center justify-center rounded-md bg-sky-500 transition-transform hover:-translate-y-1.5'>
 							<FaTelegram className='size-7 text-white' />
@@ -47,11 +49,6 @@ export function ShareActions({ channel }: ShareActionsProps) {
 							<FaXTwitter className='size-7 text-white' />
 						</div>
 					</TwitterShareButton>
-					<VKShareButton url={shareUrl}>
-						<div className='flex h-14 items-center justify-center rounded-md bg-sky-700 transition-transform hover:-translate-y-1.5'>
-							<FaVk className='size-7 text-white' />
-						</div>
-					</VKShareButton>
 					<RedditShareButton url={shareUrl}>
 						<div className='flex h-14 items-center justify-center rounded-md bg-orange-600 transition-transform hover:-translate-y-1.5'>
 							<FaReddit className='size-7 text-white' />
