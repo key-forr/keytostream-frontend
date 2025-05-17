@@ -1,51 +1,21 @@
-.theme-violet {
-	--primary: 262.1 83.3% 57.8%;
+.theme-red {
+	--primary: 0 72.2% 50.6%;
 	--primary-foreground: 210 20% 98%;
 }
 
-.dark .theme-violet {
-	--primary: 263.4 70% 50.4%;
+.dark .theme-red {
+	--primary: 0 72.2% 50.6%;
 	--primary-foreground: 210 20% 98%;
 }
 
-.theme-blue {
-	--primary: 204, 70%, 53%;
-	--primary-foreground: 210 40% 98%;
+.theme-black {
+	--primary: 0 0% 0%;
+	--primary-foreground: 0 0% 100%;
 }
 
-.dark .theme-blue {
-	--primary: 204, 70%, 53%;
-	--primary-foreground: 210 40% 98%;
-}
-
-.theme-turquoise {
-	--primary: 176, 77%, 41%;
-	--primary-foreground: 210 40% 98%;
-}
-
-.dark .theme-turquoise {
-	--primary: 176, 77%, 41%;
-	--primary-foreground: 210 40% 98%;
-}
-
-.theme-yellow {
-	--primary: 48, 89%, 50%;
-	--primary-foreground: 210 40% 98%;
-}
-
-.dark .theme-yellow {
-	--primary: 48, 89%, 50%;
-	--primary-foreground: 210 40% 98%;
-}
-
-.theme-peach {
-	--primary: 17, 94%, 67%;
-	--primary-foreground: 210 40% 98%;
-}
-
-.dark .theme-peach {
-	--primary: 17, 94%, 67%;
-	--primary-foreground: 210 40% 98%;
+.dark .theme-black {
+	--primary: 0 0% 0%;
+	--primary-foreground: 0 0% 100%;
 }
 
 .theme-pink {
@@ -58,22 +28,42 @@
 	--primary-foreground: 210 40% 98%;
 }
 
-.theme-rose {
-	--primary: 340, 82%, 52%;
+.theme-dark-green {
+	--primary: 150 60% 25%;
 	--primary-foreground: 210 40% 98%;
 }
 
-.dark .theme-rose {
-	--primary: 340, 82%, 52%;
+.dark .theme-dark-green {
+	--primary: 150 60% 25%;
 	--primary-foreground: 210 40% 98%;
 }
 
-.theme-red {
-	--primary: 0 72.2% 50.6%;
+.theme-gray {
+	--primary: 0 0% 50%;
 	--primary-foreground: 210 40% 98%;
 }
 
-.dark .theme-red {
-	--primary: 0 72.2% 50.6%;
+.dark .theme-gray {
+	--primary: 0 0% 50%;
+	--primary-foreground: 210 40% 98%;
+}
+
+.theme-purple {
+	--primary: 270 70% 50%;
+	--primary-foreground: 210 40% 98%;
+}
+
+.dark .theme-purple {
+	--primary: 270 70% 50%;
+	--primary-foreground: 210 40% 98%;
+}
+
+.theme-dark-blue {
+	--primary: 220 70% 25%;
+	--primary-foreground: 210 40% 98%;
+}
+
+.dark .theme-dark-blue {
+	--primary: 220 70% 25%;
 	--primary-foreground: 210 40% 98%;
 }

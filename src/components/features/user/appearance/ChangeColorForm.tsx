@@ -20,7 +20,7 @@ export function ChangeColorForm() {
 			heading={t('heading')}
 			description={t('description')}
 			rightContent={
-				<div className='grid grid-cols-4 gap-2 md:grid-cols-8'>
+				<div className='grid grid-cols-4 gap-2 md:grid-cols-7'>
 					{BASE_COLORS.map((theme, index) => {
 						const isActive = config.theme == theme.name
 
