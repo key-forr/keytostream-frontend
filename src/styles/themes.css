@@ -67,3 +67,13 @@
 	--primary: 220 70% 25%;
 	--primary-foreground: 210 40% 98%;
 }
+
+.theme-neon-green {
+	--primary: 120 100% 50%;
+	--primary-foreground: 0 0% 0%;
+}
+
+.dark .theme-neon-green {
+	--primary: 120 100% 50%;
+	--primary-foreground: 0 0% 0%;
+}

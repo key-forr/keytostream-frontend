@@ -26,6 +26,10 @@ export const BASE_COLORS = [
 	{
 		name: 'dark-blue',
 		color: '220 70% 25%'
+	},
+	{
+		name: 'neon-green',
+		color: '120 100% 50%'
 	}
 ] as const
 
