@@ -4,8 +4,8 @@ export const BASE_COLORS = [
 		color: '0 72.2% 50.6%'
 	},
 	{
-		name: 'black',
-		color: '0 0% 0%'
+		name: 'white',
+		color: '0 0% 100%'
 	},
 	{
 		name: 'pink',

@@ -8,14 +8,14 @@
 	--primary-foreground: 210 20% 98%;
 }
 
-.theme-black {
-	--primary: 0 0% 0%;
-	--primary-foreground: 0 0% 100%;
+.theme-white {
+	--primary: 0 0% 100%;
+	--primary-foreground: 0 0% 0%;
 }
 
-.dark .theme-black {
-	--primary: 0 0% 0%;
-	--primary-foreground: 0 0% 100%;
+.dark .theme-white {
+	--primary: 0 0% 100%;
+	--primary-foreground: 0 0% 0%;
 }
 
 .theme-pink {
