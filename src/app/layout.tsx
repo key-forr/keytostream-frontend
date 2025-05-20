@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 	applicationName: SITE_NAME,
 	authors: [
 		{
-			name: 'TeaCoder',
+			name: 'key.forr1',
 			url: new URL('https://github.com/key-forr')
 		}
 	],
